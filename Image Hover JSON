@@ -1,0 +1,56 @@
+{
+  "plugin_type": "widget",
+  "name": "Image Hover",
+  "edit_page_url": "www.ashford.edu",
+  "form_schema": [
+    {
+      "default_value": "Snail-ish Stairs",
+      "field_type": "text",
+      "name": "text1",
+      "label": "Image 1 text",
+      "options": null
+    },
+    {
+      "default_value": "Awesome Tile",
+      "field_type": "text",
+      "name": "text2",
+      "label": "Image text 2",
+      "options": null
+    },
+    {
+      "default_value": "Portal Window",
+      "field_type": "text",
+      "name": "text3",
+      "label": "image text 3",
+      "options": null
+    },
+    {
+      "default_value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample11.jpg\n",
+      "field_type": "image",
+      "name": "image1",
+      "label": "image 1",
+      "options": null
+    },
+    {
+      "default_value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample10.jpg\n",
+      "field_type": "image",
+      "name": "image2",
+      "label": "Image 2",
+      "options": null
+    },
+    {
+      "default_value": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample14.jpg\n",
+      "field_type": "image",
+      "name": "image3",
+      "label": "Image 3",
+      "options": null
+    }
+  ],
+  "description": "",
+  "options": {
+    "html": "<div id=\"optimizely-extension-{{ extension.$instance }}\" class=\"\">\n  {{ extension.text }}\n</div>\n\n<figure class=\"snip1581\"><img src={{extension.image1}} alt=\"profile-sample7\"/>\n  <figcaption>\n    <h3 class=\"title2\">{{extension.text1}}</h3>\n  </figcaption><a href=\"#\"></a>\n</figure>\n<figure class=\"snip1581\"><img src={{extension.image2}} alt=\"profile-sample7\"/>\n  <figcaption>\n    <h3 class=\"title2\">{{extension.text2}}</h3>\n  </figcaption><a href=\"#\"></a>\n</figure>\n<figure class=\"snip1581\"><img src={{extension.image3}} alt=\"profile-sample6\"/>\n  <figcaption>\n    <h3 class=\"title2\">{{extension.text3}}</h3>\n  </figcaption><a href=\"#\"></a>\n</figure>",
+    "css": ". {\n  background-color: #fff575;\n  border-bottom: 1px solid #e0d769;\n  color: #555;\n  padding: 10px;\n\tfont-weight: bold;\n  text-align: center;\n  font-size: 20px;\n}\n@import url(https://fonts.googleapis.com/css?family=Poppins:300,700);\n.snip1581 {\n  font-family: 'Poppins:400,700', Arial, sans-serif;\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  margin: 8px;\n  min-width: 250px;\n  max-width: 310px;\n  width: 100%;\n  background-color: #000000;\n  color: #ffffff;\n  text-align: left;\n  font-size: 16px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);\n}\n.snip1581 * {\n  -webkit-transition: all 0.35s;\n  transition: all 0.35s;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n}\n.snip1581 img {\n  max-width: 100%;\n  vertical-align: top;\n}\n.snip1581 figcaption {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  padding: 20px;\n  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.8) 0%, transparent 100%);\n  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-end;\n}\n.snip1581 h3 {\n  font-size: 44px;\n  font-weight: 400;\n  line-height: 1;\n  letter-spacing: 1px;\n  text-transform: uppercase;\n  margin: 3px 0;\n}\n.snip1581 .title1 {\n  font-weight: 700;\n}\n.snip1581 .title2 {\n  color: #a58e7c;\n  font-weight: 300;\n}\n.snip1581 .title3 {\n  font-weight: 700;\n  font-size: 25px;\n}\n.snip1581 a {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.snip1581:hover img,\n.snip1581.hover img {\n  -webkit-transform: scale(1.3) rotate(5deg);\n  transform: scale(1.3) rotate(5deg);\n}\n/* Demo purposes only */\nbody {\n  background-color: #212121;\n  text-align: center;\n}",
+    "apply_js": "var utils = optimizely.get('utils');\n\nutils.waitForElement('body')\n  .then(function(elem) {\n    // Prepend the extension html to the body\n    elem.insertAdjacentHTML('afterbegin', extension.$html);\n  });\n",
+    "undo_js": "var extensionHtml = document.getElementById('optimizely-extension-' + extension.$instance);\nif (extensionHtml) extensionHtml.remove();\n"
+  }
+}
